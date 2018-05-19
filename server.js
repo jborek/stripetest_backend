@@ -16,7 +16,7 @@ const corsOptions = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://justinborek:stripetest@ds123500.mlab.com:23500/stripetest', { useMongoClient: true });
+mongoose.connect('mongodb://justinborek:stripetest@ds123500.mlab.com:23500/stripetest');
 
 server.use(bodyParser.json());
 server.use(CORS());
