@@ -12,6 +12,11 @@ const createUser = (req, res) => {
         .catch(err => res.status(422).json(err))
 };
 
+const userLogin = (req, res) => {
+    res.json(req.loggedInUser);
+}
+
 module.exports = {
-    createUser
+    createUser,
+    userLogin
 }
