@@ -28,7 +28,7 @@ const authenticate = (req, res, next) => {
     }
     User.findOne({ username }, (err, user) => {
         if (err || user === null) {
-            console.log('Unable to find user');
+            throw new Error('Unable to find user');
             return;
         }
         const hashedPass = user.password;
