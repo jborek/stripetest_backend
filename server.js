@@ -1,10 +1,14 @@
+require('dotenv').config();
+
 const express = require ('express');
 const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
 const CORS = require('cors');
 
 const server = express();
-const port = process.env.PORT || 3030;
+const port = process.env.PORT;
+const user = process.env.DB_USER;
+const pass = process.env.DB_PASS;
 
 const routes = require ('./api/routes/routes');
 
@@ -16,7 +20,7 @@ const corsOptions = {
 };
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://justinborek:stripetest@ds123500.mlab.com:23500/stripetest');
+mongoose.connect(`mongodb://${user}:${pass}@ds123500.mlab.com:23500/stripetest`);
 
 server.use(bodyParser.json());
 server.use(CORS());
